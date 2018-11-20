@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;font-family: "Microsoft YaHei";}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
+table{border-collapse:collapse;border-spacing:0}
+audio,canvas,video { display: inline-block;*display: inline;*zoom: 1;}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+input,textarea,select{*font-size:100%}
+ul{margin: 0;padding:0;}
+input {outline: none;border: 0;}
+a {text-decoration: none;color: #000;}
+html,body {
+	width: 100%;
+    height: 100%;
+    font-family: 'Open Sans',Arial,sans-serif!important;
+}
+body {
+    /* font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;; */
+    font-size: 12px;
+    -webkit-tap-highlight-color:transparent;
+}
+#container {
+    width: 100%;
+    cursor: pointer;
+}
+.font28 {
+    font-size: 28px;
+}
+button {
+    outline: none;
+    border: 0;
+}
+.transfrom-speedup {
+    -webkit-transform: translate3d(0,0);
+    -moz-transform: translate3d(0,0);
+    -ms-transform: translate3d(0,0);
+    -o-transform: translate3d(0,0);
+    /*或者*/
+    /*-webkit-transform: translatez(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);*/
+}
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+    border-radius:4px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgb(0,0,0,.2);
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+}
