@@ -20,7 +20,6 @@ class LinkList extends React.Component {
                 {item}
             </li>
         );
-        console.log(linkSig);
         return (
             <ul className={this.props.classNm}>
                 {this.props.title}

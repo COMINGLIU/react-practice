@@ -111,25 +111,25 @@ class Footer extends React.Component {
                     <div className="width1160">
                         <ul>
                             <li>
-                                <LinkList lists={this.state.siteMapList} sig="true" classNm="siteMap" title="Site Map"/>
+                                <LinkList lists={this.state.siteMapList} sig={true} classNm="siteMap" title="Site Map"/>
                             </li>     
                             <li> 
                                 <ul>
                                     <li>
-                                        <LinkList lists={this.state.maxAdvancedBrakesList} sig="false" classNm="max" title="Max Advanced Brakes"/>
+                                        <LinkList lists={this.state.maxAdvancedBrakesList} sig={false} classNm="max" title="Max Advanced Brakes"/>
                                     </li>
                                     <li>
-                                        <LinkList lists={this.state.customerSupportList} sig="false" classNm="customer" title="Customer Support"/>
+                                        <LinkList lists={this.state.customerSupportList} sig={false} classNm="customer" title="Customer Support"/>
                                     </li>
                                 </ul>
                             </li>
                             <li>
                                 <ul>
                                     <li>
-                                        <LinkList lists={this.state.otherInfoList} sig="true" classNm="other" title="Other Information"/>
+                                        <LinkList lists={this.state.otherInfoList} sig={true} classNm="other" title="Other Information"/>
                                     </li>
                                     <li>
-                                        <LinkList lists={this.state.helpList} sig="true" classNm="help" title="Help Topics"/>
+                                        <LinkList lists={this.state.helpList} sig={true} classNm="help" title="Help Topics"/>
                                     </li>
                                 </ul>
                             </li>
@@ -138,7 +138,9 @@ class Footer extends React.Component {
                             </li>
                         </ul>
                     </div>
-                    <div id="fall">
+                </div>
+                <div id="fall">
+                    <div className="width1160">
                         <i>Copyright © 2018 MaxBrakes.com. All Rights Reserved.</i><br/>
                         <i>Powered by <em>Web Shop Manager.</em></i>
                     </div>

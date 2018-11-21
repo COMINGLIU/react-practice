@@ -558,25 +558,25 @@ class Footer extends React.Component {
                     React.createElement("div", {className: "width1160"}, 
                         React.createElement("ul", null, 
                             React.createElement("li", null, 
-                                React.createElement(LinkList, {lists: this.state.siteMapList, sig: "true", classNm: "siteMap", title: "Site Map"})
+                                React.createElement(LinkList, {lists: this.state.siteMapList, sig: true, classNm: "siteMap", title: "Site Map"})
                             ), 
                             React.createElement("li", null, 
                                 React.createElement("ul", null, 
                                     React.createElement("li", null, 
-                                        React.createElement(LinkList, {lists: this.state.maxAdvancedBrakesList, sig: "false", classNm: "max", title: "Max Advanced Brakes"})
+                                        React.createElement(LinkList, {lists: this.state.maxAdvancedBrakesList, sig: false, classNm: "max", title: "Max Advanced Brakes"})
                                     ), 
                                     React.createElement("li", null, 
-                                        React.createElement(LinkList, {lists: this.state.customerSupportList, sig: "false", classNm: "customer", title: "Customer Support"})
+                                        React.createElement(LinkList, {lists: this.state.customerSupportList, sig: false, classNm: "customer", title: "Customer Support"})
                                     )
                                 )
                             ), 
                             React.createElement("li", null, 
                                 React.createElement("ul", null, 
                                     React.createElement("li", null, 
-                                        React.createElement(LinkList, {lists: this.state.otherInfoList, sig: "true", classNm: "other", title: "Other Information"})
+                                        React.createElement(LinkList, {lists: this.state.otherInfoList, sig: true, classNm: "other", title: "Other Information"})
                                     ), 
                                     React.createElement("li", null, 
-                                        React.createElement(LinkList, {lists: this.state.helpList, sig: "true", classNm: "help", title: "Help Topics"})
+                                        React.createElement(LinkList, {lists: this.state.helpList, sig: true, classNm: "help", title: "Help Topics"})
                                     )
                                 )
                             ), 
@@ -584,8 +584,10 @@ class Footer extends React.Component {
                                 React.createElement(SecFlo, {title: "Secure Shopping", secImgLists: this.state.secureShop.img, secContent: this.state.secureShop.content, secTel: this.state.secureShop.tel, secEmail: this.state.secureShop.email})
                             )
                         )
-                    ), 
-                    React.createElement("div", {id: "fall"}, 
+                    )
+                ), 
+                React.createElement("div", {id: "fall"}, 
+                    React.createElement("div", {className: "width1160"}, 
                         React.createElement("i", null, "Copyright © 2018 MaxBrakes.com. All Rights Reserved."), React.createElement("br", null), 
                         React.createElement("i", null, "Powered by ", React.createElement("em", null, "Web Shop Manager."))
                     )
@@ -619,7 +621,6 @@ class LinkList extends React.Component {
                 item
             )
         );
-        console.log(linkSig);
         return (
             React.createElement("ul", {className: this.props.classNm}, 
                 this.props.title, 
@@ -648,7 +649,7 @@ class Sec extends React.Component {
         return(
             React.createElement("div", null, 
                 React.createElement("ul", null, 
-                    this.props.title, 
+                    React.createElement("p", null, this.props.title), 
                     listItem
                 ), 
                 React.createElement("h3", null, this.props.secContent), 

@@ -14,7 +14,7 @@ class Sec extends React.Component {
         return(
             <div>
                 <ul>
-                    {this.props.title}
+                    <p>{this.props.title}</p>
                     {listItem}
                 </ul>
                 <h3>{this.props.secContent}</h3>
