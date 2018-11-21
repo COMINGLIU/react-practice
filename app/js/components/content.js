@@ -57,15 +57,15 @@ class Content extends React.Component {
             ],
             latestList: [
                 {
-                    title: '',
-                    imgUrl: '',
-                    time: '',
-                    content: ''
+                    title: 'Boxing Month Saving Alert!',
+                    imgUrl: '/app/images/latest1.jpg',
+                    time: 'Dec 18 2017',
+                    content: 'Season’s Greetings &'
                 },{
-                    title: '',
-                    imgUrl: '',
-                    time: '',
-                    content: ''
+                    title: 'lncoming Savings Alert!',
+                    imgUrl: '/app/images/latest2.jpg',
+                    time: 'Nov 14 2017',
+                    content: 'The Max Advanced Brakes Team would like to wish everyone a very happy'
                 }
             ]
         };
@@ -80,9 +80,9 @@ class Content extends React.Component {
                         <SmallBanner classNm="smallBanner" lists={this.state.smallBanners}/>
                     </div>
                     <FeatureCatBanner classNm="featureCatBanner" lists={this.state.featureCatList} title="FEATURE CATEGORIES"/>
-                    <Partner classNm='partnerUl' partnerList={this.state.partnerList}/>
-                    <Latest lists={this.state.latestList}/>
                 </div>
+                <Partner partnerList={this.state.partnerList}/>
+                <Latest lists={this.state.latestList}/>
             </div>
         );
     }

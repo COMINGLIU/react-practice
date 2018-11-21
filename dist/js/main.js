@@ -72,21 +72,22 @@ class Container extends React.Component {
             React.createElement("div", {id: "container"}, 
                 React.createElement(Top, null), 
                 React.createElement(Header, null), 
-                React.createElement(Content, null)
-                /* <Footer /> */
+                React.createElement(Content, null), 
+                React.createElement(Footer, null)
             )
         );
     }
 }
 module.exports = Container;
 
-},{"./content.js":3,"./footer.js":10,"./header.js":11,"./top.js":12,"react":26}],3:[function(require,module,exports){
+},{"./content.js":3,"./footer.js":11,"./header.js":14,"./top.js":15,"react":29}],3:[function(require,module,exports){
 const React = require('react');
 const SideBar = require('./content/sidebar.js');
 const Banner = require('./content/banner.js');
 const SmallBanner = require('./content/listItem.js');
 const FeatureCatBanner = require('./content/featureCatBanner.js');
 const Partner = require('./content/partner.js');
+const Latest = require('./content/latest.js');
 
 class Content extends React.Component {
     constructor(props){
@@ -106,6 +107,49 @@ class Content extends React.Component {
                     url: '/app/images/F143872113.jpg',
                     to: ''
                 }
+            ],
+            featureCatList: [
+                {
+                    url: '/app/images/F143872160.jpg',
+                    to: '',
+                    name: 'SHOP BRAKE ROTORS'
+                },{
+                    url: '/app/images/F143872161.jpg',
+                    to: '',
+                    name: 'SHOP BRAKES KITS'
+                },{
+                    url: '/app/images/F143872158.jpg',
+                    to: '',
+                    name: 'SHOP BRAKES PADS'
+                }
+            ],
+            partnerList:[
+                {
+                    url: '/app/images/F143872163.png',
+                    to: ''
+                },{
+                    url: '/app/images/F143872155.png',
+                    to: ''
+                },{
+                    url: '/app/images/F143872162.png',
+                    to: ''
+                },{
+                    url: '/app/images/F143872165.png',
+                    to: ''
+                }
+            ],
+            latestList: [
+                {
+                    title: 'Boxing Month Saving Alert!',
+                    imgUrl: '/app/images/latest1.jpg',
+                    time: 'Dec 18 2017',
+                    content: 'Season’s Greetings &'
+                },{
+                    title: 'lncoming Savings Alert!',
+                    imgUrl: '/app/images/latest2.jpg',
+                    time: 'Nov 14 2017',
+                    content: 'The Max Advanced Brakes Team would like to wish everyone a very happy'
+                }
             ]
         };
     }
@@ -118,18 +162,17 @@ class Content extends React.Component {
                         React.createElement(Banner, null), 
                         React.createElement(SmallBanner, {classNm: "smallBanner", lists: this.state.smallBanners})
                     ), 
-                    React.createElement(FeatureCatBanner, {classNm: "featureCatBanner"}), 
-                    React.createElement("div", {id: "partner"}, 
-                        React.createElement(Partner, {classNm: "partnerUl", partnerList: this.state.partnerList})
-                    )
-                )
+                    React.createElement(FeatureCatBanner, {classNm: "featureCatBanner", lists: this.state.featureCatList, title: "FEATURE CATEGORIES"})
+                ), 
+                React.createElement(Partner, {partnerList: this.state.partnerList}), 
+                React.createElement(Latest, {lists: this.state.latestList})
             )
         );
     }
 }
 module.exports = Content;
 
-},{"./content/banner.js":4,"./content/featureCatBanner.js":5,"./content/listItem.js":6,"./content/partner.js":7,"./content/sidebar.js":9,"react":26}],4:[function(require,module,exports){
+},{"./content/banner.js":4,"./content/featureCatBanner.js":5,"./content/latest.js":6,"./content/listItem.js":7,"./content/partner.js":8,"./content/sidebar.js":10,"react":29}],4:[function(require,module,exports){
 const React = require('React');
 
 
@@ -190,7 +233,7 @@ class Banner extends React.Component {
 
 module.exports = Banner;
 
-},{"React":16}],5:[function(require,module,exports){
+},{"React":19}],5:[function(require,module,exports){
 const React = require('react');
 
 class FeatureCatBanner extends React.Component {
@@ -217,7 +260,48 @@ class FeatureCatBanner extends React.Component {
 }
 module.exports = FeatureCatBanner;
 
-},{"react":26}],6:[function(require,module,exports){
+},{"react":29}],6:[function(require,module,exports){
+const React = require('react');
+
+class Latest extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            title: 'Latst News & Blog'
+        }
+    }
+    render(){
+        let lists = this.props.lists;
+        let listItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                React.createElement("a", {href: item.to}, 
+                    React.createElement("img", {src: item.imgUrl})
+                ), 
+                React.createElement("div", {className: "into"}, 
+                    React.createElement("h3", null, item.title), 
+                    React.createElement("p", null, 
+                        React.createElement("em", null, "-"), 
+                        React.createElement("time", null, item.time)
+                    ), 
+                    React.createElement("h4", null, item.content)
+                )
+            )
+        );
+        return (
+            React.createElement("div", {id: "latest"}, 
+                React.createElement("div", {className: "width1160"}, 
+                    React.createElement("h2", null, this.state.title), 
+                    React.createElement("p", {className: "segLineDouble"}), 
+                    React.createElement("p", {className: "segLineSingle"}), 
+                    React.createElement("ul", null, listItem)
+                )
+            )
+        );
+    }
+}
+module.exports = Latest;
+
+},{"react":29}],7:[function(require,module,exports){
 const React = require('react');
 
 class ListItem extends React.Component {
@@ -240,9 +324,9 @@ class ListItem extends React.Component {
 }
 module.exports = ListItem;
 
-},{"react":26}],7:[function(require,module,exports){
+},{"react":29}],8:[function(require,module,exports){
 const React = require('react');
-const ListItem = requie('./listItem.js');
+const ListItem = require('./listItem.js');
 
 class Partner extends React.Component {
     constructor(props){
@@ -251,13 +335,21 @@ class Partner extends React.Component {
     render(){
         let partnerList = this.props.partnerList;
         return(
-            React.createElement(ListItem, {classNm: this.props.classNm}, partnerList)
+            React.createElement("div", {id: "partner"}, 
+                React.createElement("div", {className: "width1160"}, 
+                    React.createElement("div", {className: "title"}, 
+                        React.createElement("p", null, "Featured"), 
+                        React.createElement("p", null, "Brands")
+                    ), 
+                    React.createElement(ListItem, {classNm: "partnerList", lists: partnerList})
+                )
+            )
         );
     }
 }
 module.exports =Partner;
 
-},{"react":26}],8:[function(require,module,exports){
+},{"./listItem.js":7,"react":29}],9:[function(require,module,exports){
 const React = require('react');
 const Ajax = require('../../commonJs/ajax.js');
 
@@ -298,7 +390,7 @@ class Search extends React.Component {
 }
 module.exports = Search;
 
-},{"../../commonJs/ajax.js":1,"react":26}],9:[function(require,module,exports){
+},{"../../commonJs/ajax.js":1,"react":29}],10:[function(require,module,exports){
 const React = require('react');
 const Search = require('./search.js');
 
@@ -352,10 +444,236 @@ class SideBar extends React.Component {
 
 module.exports = SideBar;
 
-},{"./search.js":8,"react":26}],10:[function(require,module,exports){
+},{"./search.js":9,"react":29}],11:[function(require,module,exports){
+const React = require('react');
+const LinkList = require('./footer/linkList.js');
+const SecFlo = require('./footer/secFlo.js');
+
+class Footer extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            footHead: {
+                title: "You've got questions? We've got answers!",
+                titleC1: "Contact us by phone or by email and if we're not available,",
+                titleC2: 'one of our representatives will get back to you within 24 hours.'
+            },
+            siteMapList:[
+                {
+                    url: '',
+                    value: 'Home'
+                },{
+                    url: '',
+                    value: 'About'
+                },{
+                    url: '',
+                    value: 'Suport'
+                },{
+                    url: '',
+                    value: 'News & Blog'
+                },{
+                    url: '',
+                    value: 'Products'
+                },{
+                    url: '',
+                    value: 'Testimonials'
+                },{
+                    url: '',
+                    value: 'Contact'
+                },{
+                    url: '',
+                    value: 'My Account'
+                },{
+                    url: '',
+                    value: 'Track My Order'
+                },{
+                    url: '',
+                    value: 'Dealer Login'
+                },
+            ],
+            maxAdvancedBrakesList: ['280 Hillmount Road','Unit 5','Markham, ON L6C 3A1'],
+            customerSupportList: [
+                'Store Hours:',
+                'Mon - Fri: 9AM - 6PM EST',
+                'Toll-Free Phone Support:',
+                '1-888-827-7927',
+                'Mon - Thursday: 8AM - 9PM EST',
+                'Friday: 8AM - 5PM EST',
+                'Sat - Sun: CLOSED',
+                'sales@maxbrakes.com'
+            ],
+            otherInfoList: [
+                {
+                    url: '',
+                    value: 'Price Match Request'
+                },{
+                    url: '',
+                    value: 'Privacy Policy'
+                },{
+                    url: '',
+                    value: 'Accessibility Multi-Year Plan'
+                }
+            ],
+            helpList: [
+                {
+                    url: '',
+                    value: "FAQ's"
+                },{
+                    url: '',
+                    value: 'Warranty'
+                },{
+                    url: '',
+                    value: 'Shipping & Returns'
+                },{
+                    url: '',
+                    value: 'Request Product Return'
+                },
+            ],
+            secureShop: {
+                img: [
+                    '/app/images/F98926746.png',
+                    '/app/images/F98926609.png',
+                    '/app/images/F98926610.png'
+                ],
+                content: 'All prices displayed on our website are USD. To pay in CAD, please call or e-mail us.',
+                tel: '1-888-827-7927',
+                email: 'sales@maxbrakes.com'
+            },
+            flowList: [
+                
+            ]
+        };
+    }
+    render(){
+        return(
+            React.createElement("div", {id: "footer"}, 
+                React.createElement("div", {className: "title"}, 
+                    React.createElement("div", {className: "width1160"}, 
+                        React.createElement("h2", null, this.state.footHead.title), 
+                        React.createElement("h3", null, this.state.footHead.titleC1), 
+                        React.createElement("h3", null, this.state.footHead.titleC2)
+                    )
+                ), 
+                React.createElement("div", {className: "infos"}, 
+                    React.createElement("div", {className: "width1160"}, 
+                        React.createElement("ul", null, 
+                            React.createElement("li", null, 
+                                React.createElement(LinkList, {lists: this.state.siteMapList, sig: "true", classNm: "siteMap", title: "Site Map"})
+                            ), 
+                            React.createElement("li", null, 
+                                React.createElement("ul", null, 
+                                    React.createElement("li", null, 
+                                        React.createElement(LinkList, {lists: this.state.maxAdvancedBrakesList, sig: "false", classNm: "max", title: "Max Advanced Brakes"})
+                                    ), 
+                                    React.createElement("li", null, 
+                                        React.createElement(LinkList, {lists: this.state.customerSupportList, sig: "false", classNm: "customer", title: "Customer Support"})
+                                    )
+                                )
+                            ), 
+                            React.createElement("li", null, 
+                                React.createElement("ul", null, 
+                                    React.createElement("li", null, 
+                                        React.createElement(LinkList, {lists: this.state.otherInfoList, sig: "true", classNm: "other", title: "Other Information"})
+                                    ), 
+                                    React.createElement("li", null, 
+                                        React.createElement(LinkList, {lists: this.state.helpList, sig: "true", classNm: "help", title: "Help Topics"})
+                                    )
+                                )
+                            ), 
+                            React.createElement("li", null, 
+                                React.createElement(SecFlo, {title: "Secure Shopping", secImgLists: this.state.secureShop.img, secContent: this.state.secureShop.content, secTel: this.state.secureShop.tel, secEmail: this.state.secureShop.email})
+                            )
+                        )
+                    ), 
+                    React.createElement("div", {id: "fall"}, 
+                        React.createElement("i", null, "Copyright © 2018 MaxBrakes.com. All Rights Reserved."), React.createElement("br", null), 
+                        React.createElement("i", null, "Powered by ", React.createElement("em", null, "Web Shop Manager."))
+                    )
+                )
+            )
+        );
+    }
+}
+module.exports = Footer;
+
+},{"./footer/linkList.js":12,"./footer/secFlo.js":13,"react":29}],12:[function(require,module,exports){
+const React = require('react');
+
+class LinkList extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let lists = this.props.lists;
+        let linkSig = this.props.sig;
+        let linkItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                React.createElement("a", {href: item.url}, 
+                    item.value
+                )
+            )
+        );
+        
+        let noLinkItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                item
+            )
+        );
+        console.log(linkSig);
+        return (
+            React.createElement("ul", {className: this.props.classNm}, 
+                this.props.title, 
+                linkSig?linkItem:noLinkItem
+            )
+        )
+    }
+}
+module.exports = LinkList;
 
 
-},{}],11:[function(require,module,exports){
+},{"react":29}],13:[function(require,module,exports){
+const React = require('react');
+
+class Sec extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let lists = this.props.secImgLists;
+        let listItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                React.createElement("img", {src: item})
+            )
+        );
+        return(
+            React.createElement("div", null, 
+                React.createElement("ul", null, 
+                    this.props.title, 
+                    listItem
+                ), 
+                React.createElement("h3", null, this.props.secContent), 
+                React.createElement("p", null, 
+                    React.createElement("span", null, this.props.secTel), "|", 
+                    React.createElement("span", null, this.props.secEmail)
+                )
+            )
+        )
+    }
+}
+
+class SecFlo extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            React.createElement(Sec, {title: this.props.title, secImgLists: this.props.secImgLists, secContent: this.props.secContent, secTel: this.props.secTel, secEmail: this.props.secEmail})
+        )
+    }
+}
+module.exports = SecFlo;
+
+},{"react":29}],14:[function(require,module,exports){
 const React = require('react');
 class UlList extends React.Component {
     constructor(props){
@@ -417,7 +735,7 @@ class Header extends React.Component {
 
 module.exports = Header;
 
-},{"react":26}],12:[function(require,module,exports){
+},{"react":29}],15:[function(require,module,exports){
 const React = require('react');
 class Top extends React.Component{
     constructor(props){
@@ -448,7 +766,7 @@ class Top extends React.Component{
 }
 module.exports = Top;
 
-},{"react":26}],13:[function(require,module,exports){
+},{"react":29}],16:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Container = require('./components/container.js');
@@ -460,7 +778,7 @@ ReactDOM.render(
     document.getElementById('app')
 )   
 
-},{"./components/container.js":2,"react":26,"react-dom":23}],14:[function(require,module,exports){
+},{"./components/container.js":2,"react":29,"react-dom":26}],17:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react.development.js
@@ -2305,7 +2623,7 @@ module.exports = react;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19}],15:[function(require,module,exports){
+},{"e/U+97":21,"object-assign":20,"prop-types/checkPropTypes":22}],18:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -2332,7 +2650,7 @@ if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);v
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 
-},{"object-assign":17}],16:[function(require,module,exports){
+},{"object-assign":20}],19:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2344,7 +2662,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react.development.js":14,"./cjs/react.production.min.js":15,"e/U+97":18}],17:[function(require,module,exports){
+},{"./cjs/react.development.js":17,"./cjs/react.production.min.js":18,"e/U+97":21}],20:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -2437,7 +2755,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 };
 
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2503,7 +2821,7 @@ process.chdir = function (dir) {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -2599,7 +2917,7 @@ module.exports = checkPropTypes;
 
 
 }).call(this,require("e/U+97"))
-},{"./lib/ReactPropTypesSecret":20,"e/U+97":18}],20:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":23,"e/U+97":21}],23:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2614,7 +2932,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 
-},{}],21:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react-dom.development.js
@@ -22346,7 +22664,7 @@ module.exports = reactDom;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19,"react":26,"scheduler":31,"scheduler/tracing":32}],22:[function(require,module,exports){
+},{"e/U+97":21,"object-assign":20,"prop-types/checkPropTypes":22,"react":29,"scheduler":34,"scheduler/tracing":35}],25:[function(require,module,exports){
 /** @license React v16.6.1
  * react-dom.production.min.js
  *
@@ -22598,7 +22916,7 @@ Ka,La,Ca.injectEventPluginsByName,qa,Ra,function(a){za(a,Qa)},Ib,Jb,Jd,Ea]},unst
 var ei={default:bi},fi=ei&&bi||ei;module.exports=fi.default||fi;
 
 
-},{"object-assign":17,"react":26,"scheduler":31}],23:[function(require,module,exports){
+},{"object-assign":20,"react":29,"scheduler":34}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -22641,7 +22959,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react-dom.development.js":21,"./cjs/react-dom.production.min.js":22,"e/U+97":18}],24:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":24,"./cjs/react-dom.production.min.js":25,"e/U+97":21}],27:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react.development.js
@@ -24486,7 +24804,7 @@ module.exports = react;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19}],25:[function(require,module,exports){
+},{"e/U+97":21,"object-assign":20,"prop-types/checkPropTypes":22}],28:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -24513,7 +24831,7 @@ if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);v
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 
-},{"object-assign":17}],26:[function(require,module,exports){
+},{"object-assign":20}],29:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -24525,7 +24843,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react.development.js":24,"./cjs/react.production.min.js":25,"e/U+97":18}],27:[function(require,module,exports){
+},{"./cjs/react.development.js":27,"./cjs/react.production.min.js":28,"e/U+97":21}],30:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * scheduler-tracing.development.js
@@ -24950,7 +25268,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":18}],28:[function(require,module,exports){
+},{"e/U+97":21}],31:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler-tracing.production.min.js
  *
@@ -24963,7 +25281,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
 
-},{}],29:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * scheduler.development.js
@@ -25607,7 +25925,7 @@ exports.unstable_shouldYield = unstable_shouldYield;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":18}],30:[function(require,module,exports){
+},{"e/U+97":21}],33:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler.production.min.js
  *
@@ -25631,7 +25949,7 @@ b=c.previous;b.next=c.previous=a;a.next=c;a.previous=b}return a};exports.unstabl
 exports.unstable_shouldYield=function(){return!f&&(null!==d&&d.expirationTime<l||w())};
 
 
-},{}],31:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25643,7 +25961,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/scheduler.development.js":29,"./cjs/scheduler.production.min.js":30,"e/U+97":18}],32:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":32,"./cjs/scheduler.production.min.js":33,"e/U+97":21}],35:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25655,4 +25973,4 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/scheduler-tracing.development.js":27,"./cjs/scheduler-tracing.production.min.js":28,"e/U+97":18}]},{},[13])
+},{"./cjs/scheduler-tracing.development.js":30,"./cjs/scheduler-tracing.production.min.js":31,"e/U+97":21}]},{},[16])

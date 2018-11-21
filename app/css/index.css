@@ -235,3 +235,211 @@ ul.smallBanner li:hover img{
     filter: brightness(150%);
     transition-duration: .3s;
 }
+/* feature cat banner */
+.featureCatBanner {
+    position: relative;
+    padding-top: 20px;
+}
+.featureCatBanner:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 430px;
+    height: 1px;
+    margin: auto;
+    border-width: 1px 0;
+    border-style: dashed;
+    border-color: rgb(225,71,47);
+}
+.featureCatBanner h2 {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+.featureCatBanner h2:hover {
+    color: rgb(225,71,47);
+}
+.featureCatBanner li {
+    display: inline-block;
+    padding: 20px;
+}
+.featureCatBanner ul {
+    text-align: center;
+}
+.featureCatBanner li:hover {
+    opacity: 0.8;
+    transition-duration: .3s;
+}
+.featureCatBanner li a {
+    overflow: hidden;
+    display: inline-block;
+    width: 307px;
+    height: 252px;
+}
+.featureCatBanner li img {
+    width: 100%;
+    height: 100%;
+}
+.featureCatBanner li h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(107,107,107);
+    text-align: center;
+}
+.featureCatBanner li h3:hover {
+    color: rgb(164,164,164);
+}
+/* partner */
+#partner {
+    box-sizing: border-box;
+    width: 100%;
+    height: 158px;
+    padding: 40px 0;
+    background-color: rgb(238,238,238);
+}
+#partner .title {
+    position: relative;
+    width: 193px;
+    height: 60px;
+    border-left: 1px dashed rgb(225,71,47);
+}
+#partner .title:before {
+    content: '';
+    position: absolute;
+    left: -90px;
+    width:1px;
+    height: 60px;
+    border-left: 1px dashed rgb(225,71,47);
+}
+#partner .title p:first-child{
+    font-size: 26px;
+    line-height: 20px;
+}
+#partner .title p:last-child {
+    font-size: 40px;
+    line-height: 48px;
+}
+#partner .title,
+#partner .partnerList {
+    display: inline-block;
+    vertical-align: middle;
+}
+#partner .partnerList li {
+    display: inline-block;
+    width: 208px;
+    height: 76px;
+    margin-right: 26px;
+}
+#partner .partnerList a,
+#partner .partnerList img {
+    width: 100%;
+    height: 100%;
+}
+/* latest */
+#latest {
+    padding-top: 80px;
+}
+#latest h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#latest ul {
+    width: 100%;
+    padding: 50px 0;
+}
+#latest ul li {
+    display: inline-block;
+    width: 50%;
+    height: 278px;
+}
+#latest li a,
+#latest li img{
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+}    
+#latest li .into {
+    display: inline-block;
+    width: calc( 100% - 220px);
+    height: 200px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+#latest .into h3 {
+    font-size: 25px;
+    line-height: 50px;
+    font-weight: normal;
+}
+#latest .into h3:hover{
+    color: rgb(196,92,9);
+}
+#latest .into p{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+#latest .into em {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(225,71,47);
+    color: #fff;
+    text-align: center;
+}
+#latest .into time {
+    color: #999;
+    margin-left: 10px;
+}
+#latest .into h4{
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(102,102,102);
+    font-weight: 700;
+}
+/* footer */
+#footer {
+
+}
+#footer .title {
+    width: 100%;
+    height: 185px;
+    border-bottom: 5px solid rgb(225,71,47);
+    background: url('/app/images/F143872113.jpg') repeat;
+    color: #fff;
+    text-align: center;
+}
+.title>div {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+}
+#footer .title h2 {
+    font-size: 50px;
+    font-weight: 400;
+    padding-top: 20px;
+}
+#footer .title h3 {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 500;
+    color:rgba(255,255,255,.8);
+}
+#footer .infos {
+    width: 100%;
+    height: 477px;
+    background-color: rgb(51,51,51);
+    color: #fff;
+}
+#footer .infos>div>ul>li {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 60px;
+}
+#footer #fall {
+    width: 100%;
+    height: 52px;
+    background-color: rgb(37,37,37);
+    color: rgb(102,102,102);
+}

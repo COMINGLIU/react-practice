@@ -10,14 +10,14 @@ class Latest extends React.Component {
     render(){
         let lists = this.props.lists;
         let listItem = lists.map((item,index) => 
-            <li>
+            <li key={index}>
                 <a href={item.to}>
                     <img src={item.imgUrl} />
                 </a>
                 <div className="into">
                     <h3>{item.title}</h3>
                     <p>
-                        <em>占</em>
+                        <em>-</em>
                         <time>{item.time}</time>
                     </p>
                     <h4>{item.content}</h4>
@@ -26,8 +26,12 @@ class Latest extends React.Component {
         );
         return (
             <div id="latest">
-                <h2>{this.state.title}</h2>
-                <ul>{listItem}</ul>
+                <div className="width1160">
+                    <h2>{this.state.title}</h2>
+                    <p className="segLineDouble"></p>
+                    <p className="segLineSingle"></p>
+                    <ul>{listItem}</ul>
+                </div>
             </div>
         );
     }

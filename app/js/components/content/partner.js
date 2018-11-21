@@ -1,5 +1,5 @@
 const React = require('react');
-const ListItem = requie('./listItem.js');
+const ListItem = require('./listItem.js');
 
 class Partner extends React.Component {
     constructor(props){
@@ -9,11 +9,13 @@ class Partner extends React.Component {
         let partnerList = this.props.partnerList;
         return(
             <div id="partner">
-                <div class="title">
-                    <h3>Featured</h3>
-                    <h3>Brands</h3>
+                <div className="width1160">
+                    <div className="title">
+                        <p>Featured</p>
+                        <p>Brands</p>
+                    </div>
+                    <ListItem classNm="partnerList" lists={partnerList}/>
                 </div>
-                <ListItem classNm={this.props.classNm}>{partnerList}</ListItem>
             </div>
         );
     }

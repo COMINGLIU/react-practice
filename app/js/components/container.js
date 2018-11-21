@@ -14,7 +14,7 @@ class Container extends React.Component {
                 <Top />
                 <Header />
                 <Content />
-                {/* <Footer /> */}
+                <Footer />
             </div>
         );
     }
