@@ -83,11 +83,21 @@ a#logo{
 /* content */
 #content-nav {
     position: relative;
+    border-bottom: 1px dashed #ccc;
+    /* margin-bottom: 100px; */
+}
+#content-nav:after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ccc;
 }
 #sidebar {
     width: 273.59px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
 }
 .search {
     width: 100%;
@@ -131,6 +141,7 @@ a#logo{
     width: 100%;
     height: 450px;
     padding-top: 10px;
+    margin-bottom: 10px;
     background-color: rgb(34,34,34);
     border-radius: 6px 6px 50px 6px;
     color: #fff;
@@ -145,7 +156,7 @@ a#logo{
 #sidebar-nav .title:before {
     content: '';
     position: absolute;
-    left: 107px;
+    left: 12px;
     width: 1px;
     height: 70px;
     border-left: 1px dashed rgb(247,149,38);
@@ -172,11 +183,11 @@ a#logo{
 }
 /* banner */
 #banner {
+    position: relative;
     display: inline-block;
     width: 855px;
     margin-top: 10px;
     height: 500px;
-    vertical-align: middle;
     margin-left: 10px;
 }
 #banner ul#swiper {
@@ -203,4 +214,24 @@ ul#swiper li {
     height: 10px;
     margin-right: 5px;
     background-color: rgb(51,51,51);
+}
+/* smallBanner */
+ul.smallBanner li{
+    overflow: hidden;
+    display: inline-block;
+    width: 273.58px;
+    height: 170px;
+    margin-bottom: 60px;
+    margin-right: 10px;
+    border-radius: 6px 6px 56px 6px;
+}
+ul.smallBanner a,
+ul.smallBanner img {
+    width: 100%;
+    height: 100%;
+}
+ul.smallBanner li:hover img{
+    -webkit-filter: brightness(150%);
+    filter: brightness(150%);
+    transition-duration: .3s;
 }

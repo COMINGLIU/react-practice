@@ -80,14 +80,34 @@ class Container extends React.Component {
 }
 module.exports = Container;
 
-},{"./content.js":3,"./footer.js":7,"./header.js":8,"./top.js":9,"react":23}],3:[function(require,module,exports){
+},{"./content.js":3,"./footer.js":10,"./header.js":11,"./top.js":12,"react":26}],3:[function(require,module,exports){
 const React = require('react');
 const SideBar = require('./content/sidebar.js');
 const Banner = require('./content/banner.js');
+const SmallBanner = require('./content/listItem.js');
+const FeatureCatBanner = require('./content/featureCatBanner.js');
+const Partner = require('./content/partner.js');
 
 class Content extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            smallBanners: [
+                {
+                    url: '/app/images/F143872111.jpg',
+                    to: ''
+                },{
+                    url: '/app/images/F143872110.jpg',
+                    to: ''
+                },{
+                    url: '/app/images/F143872112.jpg',
+                    to: ''
+                },{
+                    url: '/app/images/F143872113.jpg',
+                    to: ''
+                }
+            ]
+        };
     }
     render(){
         return (
@@ -95,7 +115,12 @@ class Content extends React.Component {
                 React.createElement("div", {className: "width1160"}, 
                     React.createElement("div", {id: "content-nav"}, 
                         React.createElement(SideBar, null), 
-                        React.createElement(Banner, null)
+                        React.createElement(Banner, null), 
+                        React.createElement(SmallBanner, {classNm: "smallBanner", lists: this.state.smallBanners})
+                    ), 
+                    React.createElement(FeatureCatBanner, {classNm: "featureCatBanner"}), 
+                    React.createElement("div", {id: "partner"}, 
+                        React.createElement(Partner, {classNm: "partnerUl", partnerList: this.state.partnerList})
                     )
                 )
             )
@@ -104,7 +129,7 @@ class Content extends React.Component {
 }
 module.exports = Content;
 
-},{"./content/banner.js":4,"./content/sidebar.js":6,"react":23}],4:[function(require,module,exports){
+},{"./content/banner.js":4,"./content/featureCatBanner.js":5,"./content/listItem.js":6,"./content/partner.js":7,"./content/sidebar.js":9,"react":26}],4:[function(require,module,exports){
 const React = require('React');
 
 
@@ -165,7 +190,74 @@ class Banner extends React.Component {
 
 module.exports = Banner;
 
-},{"React":13}],5:[function(require,module,exports){
+},{"React":16}],5:[function(require,module,exports){
+const React = require('react');
+
+class FeatureCatBanner extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let lists = this.props.lists;
+        let listItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                React.createElement("a", {href: item.to}, 
+                    React.createElement("img", {src: item.url})
+                ), 
+                React.createElement("h3", null, item.name)
+            )
+        );
+        return (
+            React.createElement("div", {className: this.props.classNm}, 
+                React.createElement("h2", null, this.props.title), 
+                React.createElement("ul", null, listItem)
+            )
+        );
+    }
+}
+module.exports = FeatureCatBanner;
+
+},{"react":26}],6:[function(require,module,exports){
+const React = require('react');
+
+class ListItem extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let lists = this.props.lists;
+        let listItem = lists.map((item,index) => 
+            React.createElement("li", {key: index}, 
+                React.createElement("a", {href: item.to}, 
+                    React.createElement("img", {src: item.url})
+                )
+            )
+        );
+        return(
+            React.createElement("ul", {className: this.props.classNm}, listItem)
+        );
+    }
+}
+module.exports = ListItem;
+
+},{"react":26}],7:[function(require,module,exports){
+const React = require('react');
+const ListItem = requie('./listItem.js');
+
+class Partner extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let partnerList = this.props.partnerList;
+        return(
+            React.createElement(ListItem, {classNm: this.props.classNm}, partnerList)
+        );
+    }
+}
+module.exports =Partner;
+
+},{"react":26}],8:[function(require,module,exports){
 const React = require('react');
 const Ajax = require('../../commonJs/ajax.js');
 
@@ -206,7 +298,7 @@ class Search extends React.Component {
 }
 module.exports = Search;
 
-},{"../../commonJs/ajax.js":1,"react":23}],6:[function(require,module,exports){
+},{"../../commonJs/ajax.js":1,"react":26}],9:[function(require,module,exports){
 const React = require('react');
 const Search = require('./search.js');
 
@@ -260,10 +352,10 @@ class SideBar extends React.Component {
 
 module.exports = SideBar;
 
-},{"./search.js":5,"react":23}],7:[function(require,module,exports){
+},{"./search.js":8,"react":26}],10:[function(require,module,exports){
 
 
-},{}],8:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 const React = require('react');
 class UlList extends React.Component {
     constructor(props){
@@ -325,7 +417,7 @@ class Header extends React.Component {
 
 module.exports = Header;
 
-},{"react":23}],9:[function(require,module,exports){
+},{"react":26}],12:[function(require,module,exports){
 const React = require('react');
 class Top extends React.Component{
     constructor(props){
@@ -356,7 +448,7 @@ class Top extends React.Component{
 }
 module.exports = Top;
 
-},{"react":23}],10:[function(require,module,exports){
+},{"react":26}],13:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Container = require('./components/container.js');
@@ -368,7 +460,7 @@ ReactDOM.render(
     document.getElementById('app')
 )   
 
-},{"./components/container.js":2,"react":23,"react-dom":20}],11:[function(require,module,exports){
+},{"./components/container.js":2,"react":26,"react-dom":23}],14:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react.development.js
@@ -2213,7 +2305,7 @@ module.exports = react;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":15,"object-assign":14,"prop-types/checkPropTypes":16}],12:[function(require,module,exports){
+},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19}],15:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -2240,7 +2332,7 @@ if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);v
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 
-},{"object-assign":14}],13:[function(require,module,exports){
+},{"object-assign":17}],16:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2252,7 +2344,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react.development.js":11,"./cjs/react.production.min.js":12,"e/U+97":15}],14:[function(require,module,exports){
+},{"./cjs/react.development.js":14,"./cjs/react.production.min.js":15,"e/U+97":18}],17:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -2345,7 +2437,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 };
 
 
-},{}],15:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2411,7 +2503,7 @@ process.chdir = function (dir) {
 };
 
 
-},{}],16:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -2507,7 +2599,7 @@ module.exports = checkPropTypes;
 
 
 }).call(this,require("e/U+97"))
-},{"./lib/ReactPropTypesSecret":17,"e/U+97":15}],17:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":20,"e/U+97":18}],20:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2522,7 +2614,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react-dom.development.js
@@ -22254,7 +22346,7 @@ module.exports = reactDom;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":15,"object-assign":14,"prop-types/checkPropTypes":16,"react":23,"scheduler":28,"scheduler/tracing":29}],19:[function(require,module,exports){
+},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19,"react":26,"scheduler":31,"scheduler/tracing":32}],22:[function(require,module,exports){
 /** @license React v16.6.1
  * react-dom.production.min.js
  *
@@ -22506,7 +22598,7 @@ Ka,La,Ca.injectEventPluginsByName,qa,Ra,function(a){za(a,Qa)},Ib,Jb,Jd,Ea]},unst
 var ei={default:bi},fi=ei&&bi||ei;module.exports=fi.default||fi;
 
 
-},{"object-assign":14,"react":23,"scheduler":28}],20:[function(require,module,exports){
+},{"object-assign":17,"react":26,"scheduler":31}],23:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -22549,7 +22641,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react-dom.development.js":18,"./cjs/react-dom.production.min.js":19,"e/U+97":15}],21:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":21,"./cjs/react-dom.production.min.js":22,"e/U+97":18}],24:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * react.development.js
@@ -24394,7 +24486,7 @@ module.exports = react;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":15,"object-assign":14,"prop-types/checkPropTypes":16}],22:[function(require,module,exports){
+},{"e/U+97":18,"object-assign":17,"prop-types/checkPropTypes":19}],25:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -24421,7 +24513,7 @@ if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);v
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 
-},{"object-assign":14}],23:[function(require,module,exports){
+},{"object-assign":17}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -24433,7 +24525,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/react.development.js":21,"./cjs/react.production.min.js":22,"e/U+97":15}],24:[function(require,module,exports){
+},{"./cjs/react.development.js":24,"./cjs/react.production.min.js":25,"e/U+97":18}],27:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * scheduler-tracing.development.js
@@ -24858,7 +24950,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":15}],25:[function(require,module,exports){
+},{"e/U+97":18}],28:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler-tracing.production.min.js
  *
@@ -24871,7 +24963,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
 
-},{}],26:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function (process){
 /** @license React v16.6.1
  * scheduler.development.js
@@ -25515,7 +25607,7 @@ exports.unstable_shouldYield = unstable_shouldYield;
 
 
 }).call(this,require("e/U+97"))
-},{"e/U+97":15}],27:[function(require,module,exports){
+},{"e/U+97":18}],30:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler.production.min.js
  *
@@ -25539,7 +25631,7 @@ b=c.previous;b.next=c.previous=a;a.next=c;a.previous=b}return a};exports.unstabl
 exports.unstable_shouldYield=function(){return!f&&(null!==d&&d.expirationTime<l||w())};
 
 
-},{}],28:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25551,7 +25643,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/scheduler.development.js":26,"./cjs/scheduler.production.min.js":27,"e/U+97":15}],29:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":29,"./cjs/scheduler.production.min.js":30,"e/U+97":18}],32:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25563,4 +25655,4 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }).call(this,require("e/U+97"))
-},{"./cjs/scheduler-tracing.development.js":24,"./cjs/scheduler-tracing.production.min.js":25,"e/U+97":15}]},{},[10])
+},{"./cjs/scheduler-tracing.development.js":27,"./cjs/scheduler-tracing.production.min.js":28,"e/U+97":18}]},{},[13])
