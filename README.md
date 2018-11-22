@@ -8,9 +8,9 @@ react网站首页模拟
     * index.css
     * reset.css
   * #### js
-    * ##### commonJs<br/>
+    * ##### commonJs：公用js<br/>
       * ajax.js
-    * ##### components<br/>
+    * ##### components：组件们<br/>
       * content<br/>
         * search.js<br/>
         * sidebar.js<br/>
