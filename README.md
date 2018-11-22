@@ -33,3 +33,11 @@ react网站首页模拟
 * ### node_modules： 依赖包<br/>
 * ### gulpfile.js： gulp打包代码<br/>
 
+## 安装依赖包
+
+1.安装react: npm install react --save(--save表示开发环境)
+2.安装react-dom: npm install react-dom --save
+
+## 安装gulp压缩依赖包
+npm install --save-dev gulp gulp-browserify gulp-concat gulp-react 
+		gulp-connect loadash reactify
