@@ -41,3 +41,6 @@ react网站首页模拟
 ## 安装gulp压缩依赖包
 npm install --save-dev gulp gulp-browserify gulp-concat gulp-react 
 		gulp-connect loadash reactify
+
+## 运行
+gulp serve
