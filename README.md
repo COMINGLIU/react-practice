@@ -5,8 +5,8 @@ react网站首页模拟
 >app： 未压缩包
   >>css<br/>
     >>>reset.css<br/>
-    >>>index.css<br/>
-    >>>reset.css<br/>
+    index.css<br/>
+    reset.css<br/>
   >>js<br/>
     >>>commonJs<br/>
       >>>>ajax.js
