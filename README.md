@@ -3,10 +3,10 @@ react网站首页模拟
 
 ##目录详解：
 *app： 未压缩包
-  *css<br/>
-    *reset.css<br/>
-    *index.css<br/>
-    *reset.css<br/>
+  *css
+    *reset.css
+    *index.css
+    *reset.css
   *js
     *commonJs<br/>
       *ajax.js
