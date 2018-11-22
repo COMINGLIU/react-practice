@@ -1,7 +1,7 @@
 # react-practice
 react网站首页模拟
 
-## 目录详解：
+## 1.目录详解：
 * ### app： 未压缩包
   * #### css
     * reset.css
@@ -33,16 +33,16 @@ react网站首页模拟
 * ### node_modules： 依赖包<br/>
 * ### gulpfile.js： gulp打包代码<br/>
 
-## 运行环境搭建
+## 2.运行环境搭建
 
-### 安装依赖包
+### (1)安装依赖包
 
-1.安装react: npm install react --save(--save表示开发环境)
+1.安装react: npm install react --save(--save表示开发环境) <br/>
 2.安装react-dom: npm install react-dom --save
 
-### 安装gulp压缩依赖包
+### (2)安装gulp压缩依赖包
 npm install --save-dev gulp gulp-browserify gulp-concat gulp-react 
 		gulp-connect loadash reactify
 
-### 运行
+### (3)运行
 gulp serve
