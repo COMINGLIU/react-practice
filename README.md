@@ -1,8 +1,8 @@
 # react-practice
 react网站首页模拟
 
-##目录详解：
-* app： 未压缩包
+## 目录详解：
+* ### app： 未压缩包
   * css
     * reset.css
     * index.css
@@ -29,7 +29,7 @@ react网站首页模拟
     * container.js<br/>
     * cart.js<br/>
   * index.html<br/>
-* dist: 压缩包<br/>
-* node_modules： 依赖包<br/>
-* gulpfile.js： gulp打包代码<br/>
+* ### dist: 压缩包<br/>
+* ### node_modules： 依赖包<br/>
+* ### gulpfile.js： gulp打包代码<br/>
 
